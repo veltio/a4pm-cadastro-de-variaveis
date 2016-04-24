@@ -1,0 +1,17 @@
+<div layout='column' ng-cloak>
+  <md-tabs>
+    <md-tab ng-repeat='grupo in grupos' label='{{grupo.nome}}'>
+      <grupo nome='{{grupo.$id}}'></grupo>
+    </md-tab>
+  </md-tabs>
+  
+  <form ng-submit="adicionarGrupo(novoGrupo)" layout="column" class="md-padding" style="padding-top: 0;">
+    <div layout="row" layout-sm="column">
+      <md-input-container>
+        <label for="label">Nome do grupo</label>
+        <input type="text" id="label" ng-model="novoGrupo">
+      </md-input-container>
+      <md-button class="add-tab md-primary md-raised" ng-disabled="!novoGrupo" type="submit" style="margin-right: 0;">Adicionar grupo</md-button>
+    </div>
+  </form>
+</div>

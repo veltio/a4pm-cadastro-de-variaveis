@@ -1,0 +1,55 @@
+<md-content class='md-padding'>
+  <form ng-submit='adicionarVariavel()' layout='column' class='form-adicionar'>
+    <div layout='column' layout-gt-xs='row'>
+      <md-input-container flex='20'>
+        <label for='label'>Nome</label>
+        <input type='text' id='label' ng-model='novaVariavel.nome'>
+      </md-input-container>
+      
+      <md-input-container class='md-block' flex='20'>
+        <label for='label'>Tipo</label>
+        <md-select ng-model='novaVariavel.tipo' id='label' ng-disabled='!novaVariavel.nome'>
+          <md-option ng-repeat='(chave, valor) in tipos' value='{{chave}}'>
+            {{valor.nome}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+        
+      <md-input-container flex='50'>
+        <label for='label'>Valor</label>
+        <input type='text' id='label' ng-disabled='!novaVariavel.tipo' ng-model='novaVariavel.valor'>
+      </md-input-container>
+      
+      <md-input-container flex='10'>
+        <md-button class='add-tab md-primary md-raised md-small' ng-disabled='!validar(novaVariavel.tipo, novaVariavel.valor)' type='submit' style='margin-right: 0;'>Adicionar variável</md-button>
+      </md-input-container>
+    </div>
+  </form>
+  
+  <div ng-repeat='variavel in variaveis' class='bloco-variavel'>
+    <div layout='column' layout-gt-xs='row'>
+      <md-input-container flex='20'>
+        <label for='label'>Nome</label>
+        <input type='text' id='label' ng-model='variavel.nome' ng-change='save(variavel);'>
+      </md-input-container>
+      
+      <md-input-container class='md-block' flex='20'>
+        <label for='label'>Tipo</label>
+        <md-select ng-model='variavel.tipo' id='label' ng-change='save(variavel);'>
+          <md-option ng-repeat='(chave, valor) in tipos' value='{{chave}}' md-selected-text='{{chave === variavel.tipo}}'>
+            {{valor.nome}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+        
+      <md-input-container flex='50'>
+        <label for='label'>Valor</label>
+        <input type='text' id='label' ng-model='variavel.valor' ng-blur='save(variavel);' ng-pattern='getPadrao(variavel.tipo)'>
+      </md-input-container>
+      
+      <md-input-container flex='10'>
+        <md-button class='md-primary md-raised md-small' ng-if='(variavel.tipo == 6)' style='margin-right: 0;'>Ampliar</md-button>
+      </md-input-container>
+    </div>
+  </div>
+</md-content>
