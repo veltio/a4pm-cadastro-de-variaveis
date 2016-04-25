@@ -71,6 +71,7 @@
         });
       };
       
+      //Função de escopo qua abre um diálogo para edição de variáveis dos tipos 5 (Query SQL) e 6 (Função)
       $scope.ampliar = function(evento, obj) {
         variavelAtual = obj;
         
@@ -90,6 +91,7 @@
         });
       };
       
+      //Controlador para diálogo de ampliar
       function DialogController($scope, $mdDialog) {
         $scope.variavel = variavelAtual;
         $scope.valorTemporario = $scope.variavel.valor;
@@ -97,9 +99,11 @@
         $scope.hide = function() {
           $mdDialog.hide();
         };
+        
         $scope.cancel = function() {
           $mdDialog.cancel();
         };
+        
         $scope.retorno = function(valor) {
           $mdDialog.hide(valor);
         };
