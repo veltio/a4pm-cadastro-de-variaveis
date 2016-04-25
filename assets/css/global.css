@@ -1,3 +1,9 @@
+.conteudo {
+  max-width: 900px;
+  height: 100%;
+  margin: 0 auto;
+}
+
 .md-padding {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -7,8 +13,8 @@ md-input-container {
   margin-bottom: 0px;
 }
 
-.conteudo {
-  /*max-width: 768px;*/
+md-input-container.textarea-full {
+  display: block;
 }
 
 .form-adicionar {
@@ -18,7 +24,7 @@ md-input-container {
 }
 
 .bloco-variavel {
-  border: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
 }
 
 .bloco-variavel md-input-container {

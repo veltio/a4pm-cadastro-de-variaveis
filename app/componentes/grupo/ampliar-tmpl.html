@@ -1,0 +1,32 @@
+<md-dialog aria-label="{{variavel.nome}}"  ng-cloak flex>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Valor da variável: {{variavel.nome}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="assets/img/icons/close.svg" aria-label="Fechar"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-input-container class='textarea-full'>
+          <label for='label'>Valor</label>
+          <textarea ng-model="valorTemporario" md-maxlength="2000"></textarea>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+    
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="hide(false)">
+        Cancelar
+      </md-button>
+      <md-button class='md-primary md-raised' ng-click="retorno(valorTemporario)" style="margin-right:20px;">
+        Salvar
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

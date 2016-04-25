@@ -25,6 +25,11 @@
         return $firebaseArray(ref);
       },
       
+      removeItem: function(raiz, id){
+        this.setRaiz(raiz);
+        $firebaseObject(ref.child(id)).$remove();
+      },
+      
       put: function(dados){
         ref.push(dados);
       }
