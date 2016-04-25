@@ -17,7 +17,7 @@
         
       <md-input-container flex='50'>
         <label for='label'>Valor</label>
-        <input type='text' id='label' ng-disabled='!novaVariavel.tipo' ng-model='novaVariavel.valor'>
+        <input type='text' id='label' ng-disabled='!novaVariavel.tipo' ng-model='novaVariavel.valor' ng-pattern='getPadrao(novaVariavel.tipo)'>
       </md-input-container>
       
       <md-input-container flex='10'>
@@ -30,12 +30,12 @@
     <div layout='column' layout-gt-xs='row'>
       <md-input-container flex='20'>
         <label for='label'>Nome</label>
-        <input type='text' id='label' ng-model='variavel.nome' ng-change='save(variavel);'>
+        <input type='text' id='label' ng-model='variavel.nome' ng-change='salva(variavel);'>
       </md-input-container>
       
       <md-input-container class='md-block' flex='20'>
         <label for='label'>Tipo</label>
-        <md-select ng-model='variavel.tipo' id='label' ng-change='save(variavel);'>
+        <md-select ng-model='variavel.tipo' id='label' ng-change='salva(variavel);'>
           <md-option ng-repeat='(chave, valor) in tipos' value='{{chave}}' md-selected-text='{{chave === variavel.tipo}}'>
             {{valor.nome}}
           </md-option>
@@ -44,7 +44,7 @@
         
       <md-input-container flex='50'>
         <label for='label'>Valor</label>
-        <input type='text' id='label' ng-model='variavel.valor' ng-blur='save(variavel);' ng-pattern='getPadrao(variavel.tipo)'>
+        <input type='text' id='label' ng-model='variavel.valor' ng-blur='validaESalva(variavel, variavel);' ng-pattern='getPadrao(variavel.tipo)'>
       </md-input-container>
       
       <md-input-container flex='10'>

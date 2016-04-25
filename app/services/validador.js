@@ -6,8 +6,9 @@
     
   app.service('Validador', [...dependencias, function (TiposVariaveis){
     return {
-      validar: function(valor, tipo){
-        return true;
+      validar: function(tipo, valor){
+        var confere = valor.match(TiposVariaveis.tipos[tipo].regex);
+        return confere;
       },
       
       getPadrao: function(tipo){

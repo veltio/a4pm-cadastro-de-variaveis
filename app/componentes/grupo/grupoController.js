@@ -24,7 +24,7 @@
       
       $scope.validaESalva = function(obj){
         //Antes de inserir o registro, faz a validação
-        if ($scope.validar(obj.valor, obj.tipo)) {
+        if ($scope.validar(obj.tipo, obj.valor)) {
             $scope.salva(obj);
         }
       }
@@ -42,7 +42,7 @@
       $scope.adicionarVariavel = function(){
         if ($scope.novaVariavel.nome && $scope.novaVariavel.tipo && $scope.novaVariavel.valor) {
           //Antes de inserir o registro, faz a validação da propriedade [valor]
-          if ($scope.validar($scope.novaVariavel.valor, $scope.novaVariavel.tipo)) {
+          if ($scope.validar($scope.novaVariavel.tipo, $scope.novaVariavel.valor)) {
             var variavel = {};
             variavel[$scope.nomeGrupo] = {
               nome: $scope.novaVariavel.nome,
