@@ -16,9 +16,18 @@
 
       //Função de escopo que cadastra um novo grupo
       $scope.adicionarGrupo = function(){
+        var
+          data = new Date(),
+          d = data.getDate(),
+          m = data.getMonth() + 1,
+          a = data.getFullYear();
+        d = (d < 10) ? '0' + d : d;
+        m = (m < 10) ? '0' + m : m;
+        data = d + '/' + m + '/' + a;
+        
         var grupo = {
           nome: $scope.novoGrupo,
-          dataDeCriacao: 'agora'
+          dataDeCriacao: data
         };
         
         Model.setRaiz('grupos');
